@@ -1,0 +1,16 @@
+Disable datetime:
+
+
+
+
+ function beforeRender($view, $dates, $leftDate, $upDate, $rightDate) {
+ 	  $scope.isActiveDate = false;
+ 	  $("#dateAssc").removeClass('alert');
+ 	  	$("#prdate").removeClass('text-red');
+    var minDate = moment().startOf($view).valueOf();  
+    for(var i=0; i < $dates.length;i++) {
+       if(minDate > $dates[i].utcDateValue) {
+          $dates[i].selectable = false;
+       }
+     }     
+    }  
